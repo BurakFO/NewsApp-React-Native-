@@ -20,6 +20,17 @@ import NewsCard from './components/NewsCard';
 const App = () => {
 
   const renderNews = ({ item }) => <NewsCard news={item} />;
+  const banner_Scroll = () => <ScrollView horizontal style={styles.scroll}>
+  {
+    news_banner_data.map(bannerNews => (
+      <Image
+        source={{ uri: bannerNews.imageUrl }}
+        style={styles.banner_image}
+      />
+    ))
+  }
+</ScrollView>;
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -31,17 +42,7 @@ const App = () => {
           data={news_data}
           renderItem={renderNews}
           style={styles.flatScroll}
-          ListHeaderComponent={
-          <ScrollView horizontal style={styles.scroll}>
-            {
-              news_banner_data.map(bannerNews => (
-                <Image
-                  source={{ uri: bannerNews.imageUrl }}
-                  style={styles.banner_image}
-                />
-              ))
-            }
-          </ScrollView>}
+          ListHeaderComponent={banner_Scroll}
           ListFooterComponent={
             <View style={styles.bottomSpace}>
 
@@ -89,6 +90,7 @@ const styles = StyleSheet.create({
     fontSize:45,
     textAlign:'center',
     fontStyle:"italic",
+
     },
    // <3 <3 <3
 
