@@ -36,7 +36,7 @@ const App = () => {
     <SafeAreaView style={styles.container}>
       <View>
 
-      <Text  style={styles.baslik} >CANIM KOCAM</Text>
+      <Text  style={styles.baslik} >Miele</Text>
 
         <FlatList
           data={news_data}
